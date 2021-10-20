@@ -1,0 +1,35 @@
+# This is a comment
+
+runtime: nodejs12
+service: default
+instance_class: F2
+automatic_scaling:
+  max_instances: 20
+  # target_cpu_utilization: 0.80
+  # target_throughput_utilization: 0.80
+  # min_pending_latency: 30ms 
+  # max_pending_latency: 50ms
+  # max_concurrent_requests: 50
+
+handlers:
+- url: /favicon\.ico
+  static_files: out/favicon.png
+  upload: out/favicon\.png
+
+- url: /apple-touch-icon-precomposed\.png
+  static_files: out/apple-touch-icon.png
+  upload: out/apple-touch-icon\.png
+
+- url: /apple-touch-icon\.png
+  static_files: out/apple-touch-icon.png
+  upload: out/apple-touch-icon\.png
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
+
+
+
+
+
